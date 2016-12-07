@@ -4,3 +4,5 @@
 target
 MANIFEST.MF
 out
+.gradle/
+build/
