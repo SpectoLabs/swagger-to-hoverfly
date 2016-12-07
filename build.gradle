@@ -1,0 +1,30 @@
+group = 'specto.io'
+version = '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+
+repositories {
+
+    mavenCentral()
+}
+
+dependencies {
+    compile 'net._01001111:jlorem:1.1'
+    compile 'io.swagger:swagger-parser:1.0.22'
+    compile 'com.google.guava:guava:20.0'
+    compile 'com.fasterxml.jackson.core:jackson-core:2.8.5'
+    compile 'ch.qos.logback:logback-classic:1.1.7'
+
+    testCompile 'com.cedarsoftware:json-io:4.3.0'
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.assertj:assertj-core:3.6.1'
+    testCompile 'org.skyscreamer:jsonassert:1.4.0'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.2.1'
+}

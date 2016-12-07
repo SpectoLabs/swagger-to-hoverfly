@@ -1,0 +1,42 @@
+swagger: '2.0'
+
+info:
+  version: "0.0.1"
+  title: Example swagger file
+
+host: specto.io
+basePath: /api
+
+paths:
+  /example/object:
+    get:
+      description: |
+        This is an example endpoint that will return one item
+      responses:
+        # Response code
+        200:
+          description: Successful response
+          # A schema describing your response object.
+          # Use JSON Schema format
+          schema:
+            $ref: '#/definitions/ExampleObject'
+
+definitions:
+  ExampleObject:
+    type: object
+    required:
+      - stringField
+      - numberField
+      - arrayField
+    properties:
+      stringField:
+        description: example string
+        type: string
+      numberField:
+        description: example number
+        type: number
+      arrayField:
+        description: example array
+        type: array
+        items:
+          type: string

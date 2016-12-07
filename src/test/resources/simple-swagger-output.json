@@ -1,0 +1,26 @@
+{
+  "data": {
+    "pairs": [
+      {
+        "request": {
+          "requestType": "recording",
+          "path": "/api/example/object",
+          "method": "GET",
+          "destination": "specto.io",
+          "scheme": "http",
+          "query": "",
+          "body": "",
+          "headers": {}
+        },
+        "response": {
+          "status": 200,
+          "encodedBody": false,
+          "headers": {}
+        }
+      }
+    ]
+  },
+  "meta": {
+    "schemaVersion": "v1"
+  }
+}
