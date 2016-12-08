@@ -24,7 +24,7 @@ public class SwaggerConverterTest {
 
     @Test
     public void shouldConvertPetstoreSwaggerYamlToHoverflyJson() throws Exception {
-        testConversion("petstore.yaml", "petstore-output.json");
+        testConversion("petstore.json", "petstore-output.json");
     }
 
     private void testConversion(final String from, final String to) throws IOException, JSONException {

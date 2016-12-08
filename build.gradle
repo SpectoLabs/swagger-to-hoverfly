@@ -1,19 +1,21 @@
+plugins {
+    id 'application'
+    id 'idea'
+    id 'com.github.johnrengelman.shadow' version '1.2.4'
+}
+
 group = 'specto.io'
 version = '1.0-SNAPSHOT'
-
-apply plugin: 'java'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 
 repositories {
-
     mavenCentral()
 }
 
 dependencies {
-    compile 'net._01001111:jlorem:1.1'
     compile 'io.swagger:swagger-parser:1.0.22'
     compile 'com.google.guava:guava:20.0'
     compile 'com.fasterxml.jackson.core:jackson-core:2.8.5'
@@ -24,6 +26,10 @@ dependencies {
     testCompile 'org.assertj:assertj-core:3.6.1'
     testCompile 'org.skyscreamer:jsonassert:1.4.0'
 }
+
+mainClassName = 'io.specto.swagger.Application'
+build.dependsOn shadowJar
+
 
 task wrapper(type: Wrapper) {
     gradleVersion = '3.2.1'
