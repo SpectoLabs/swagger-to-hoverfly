@@ -1,14 +1,13 @@
-= swagger-to-hoverfly
+== swagger-to-hoverfly
 
-= Overview
 This is a spike Java project designed to generate Hoverfly simulations from Swagger definitions.
 
-= Requirements
+=== Requirements
 
 * Java8
 * Gradle
 
-= Usage
+=== Usage
 
 Run test and build shadow jar.
 
