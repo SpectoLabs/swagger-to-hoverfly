@@ -24,3 +24,10 @@ java -jar build/libs/swagger-to-hoverfly-1.0-SNAPSHOT-all.jar src/test/resources
 ----
 
 This will print out the equivalent Hoverfly simulation data.
+
+Or output to a json file:
+
+[source,bash]
+----
+java -jar build/libs/swagger-to-hoverfly-1.0-SNAPSHOT-all.jar src/test/resources/petstore.json > hoverfly-petstore.json
+----
