@@ -2,11 +2,6 @@
 
 This is a spike Java project designed to generate Hoverfly simulations from Swagger definitions.
 
-=== Requirements
-
-* Java8
-* Gradle
-
 === Usage
 
 Run test and build shadow jar.
