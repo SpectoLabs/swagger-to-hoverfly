@@ -6,4 +6,4 @@ MANIFEST.MF
 out
 .gradle/
 build/
-*.json
+/*.json
