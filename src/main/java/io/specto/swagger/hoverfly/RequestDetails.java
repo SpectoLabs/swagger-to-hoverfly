@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 public class RequestDetails {
-    private final String requestType = "recording";
+    private final String requestType;
     private final String path;
     private final String method;
     private final String destination;
@@ -14,7 +14,8 @@ public class RequestDetails {
     private final String body;
     private final Map<String, List<String>> headers;
 
-    private RequestDetails(String path, String method, String destination, String scheme, String query, String body, Map<String, List<String>> headers) {
+    private RequestDetails(String requestType, String path, String method, String destination, String scheme, String query, String body, Map<String, List<String>> headers) {
+        this.requestType = requestType;
         this.path = path;
         this.method = method;
         this.destination = destination;
@@ -68,6 +69,10 @@ public class RequestDetails {
     public static class Builder {
 
         private static final String SCHEME = "http";
+        private static final String DEFAULT_REQUEST_TYPE = "recording";
+        private static final String TEMPLATE_REQUEST_TYPE = "template";
+
+        private String requestType = DEFAULT_REQUEST_TYPE;
         private String path = "";
         private String method = "";
         private String destination;
@@ -76,6 +81,10 @@ public class RequestDetails {
 
         public Builder withPath(final String path) {
             this.path = path;
+            if(path.matches(".*\\{[a-zA-z]*\\}.*")){
+                this.path = path.replaceAll("\\{[a-zA-z]*\\}", "*");
+                this.requestType = TEMPLATE_REQUEST_TYPE;
+            }
             return this;
         }
 
@@ -95,7 +104,7 @@ public class RequestDetails {
         }
 
         public RequestDetails build() {
-            return new RequestDetails(path, method, destination, SCHEME, query, body, Collections.emptyMap());
+            return new RequestDetails(requestType, path, method, destination, SCHEME, query, body, Collections.emptyMap());
         }
 
         public Builder withQuery(final String query) {
