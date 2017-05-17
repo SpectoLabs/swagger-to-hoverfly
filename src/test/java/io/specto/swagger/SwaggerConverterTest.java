@@ -9,7 +9,9 @@ import org.skyscreamer.jsonassert.JSONAssert;
 import org.skyscreamer.jsonassert.JSONCompareMode;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.net.URL;
+import java.nio.file.Paths;
 
 import static com.cedarsoftware.util.io.JsonWriter.formatJson;
 import static java.nio.charset.Charset.defaultCharset;
@@ -27,11 +29,11 @@ public class SwaggerConverterTest {
         testConversion("petstore.json", "petstore-output.json");
     }
 
-    private void testConversion(final String from, final String to) throws IOException, JSONException {
+    private void testConversion(final String from, final String to) throws IOException, JSONException, URISyntaxException {
         URL swaggerYamlUrl = Resources.getResource(from);
         URL hoverflyJsonUrl = Resources.getResource(to);
         String expectedJson = Resources.toString(hoverflyJsonUrl, defaultCharset());
-        PayloadView data = new SwaggerConverter().convert(swaggerYamlUrl.getPath());
+        PayloadView data = new SwaggerConverter().convert(Paths.get(swaggerYamlUrl.toURI()).toString());
 
         ObjectMapper mapper = new ObjectMapper();
         String actualJson = mapper.writeValueAsString(data);
