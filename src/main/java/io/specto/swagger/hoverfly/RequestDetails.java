@@ -11,17 +11,15 @@ public class RequestDetails {
     private final String destination;
     private final String scheme;
     private final String query;
-    private final String body;
     private final Map<String, List<String>> headers;
 
-    private RequestDetails(String requestType, String path, String method, String destination, String scheme, String query, String body, Map<String, List<String>> headers) {
+    private RequestDetails(String requestType, String path, String method, String destination, String scheme, String query, Map<String, List<String>> headers) {
         this.requestType = requestType;
         this.path = path;
         this.method = method;
         this.destination = destination;
         this.scheme = scheme;
         this.query = query;
-        this.body = body;
         this.headers = headers;
     }
 
@@ -49,10 +47,6 @@ public class RequestDetails {
         return query;
     }
 
-    public String getBody() {
-        return body;
-    }
-
     public Map<String, List<String>> getHeaders() {
         return headers;
     }
@@ -76,7 +70,6 @@ public class RequestDetails {
         private String path = "";
         private String method = "";
         private String destination;
-        private String body = "";
         private String query = "";
 
         public Builder withPath(final String path) {
@@ -98,13 +91,8 @@ public class RequestDetails {
             return this;
         }
 
-        public Builder withBody(final String body) {
-            this.body = body;
-            return this;
-        }
-
         public RequestDetails build() {
-            return new RequestDetails(requestType, path, method, destination, SCHEME, query, body, Collections.emptyMap());
+            return new RequestDetails(requestType, path, method, destination, SCHEME, query, Collections.emptyMap());
         }
 
         public Builder withQuery(final String query) {

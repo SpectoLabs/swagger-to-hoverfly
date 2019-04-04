@@ -9,13 +9,12 @@
           "destination": "specto.io",
           "scheme": "http",
           "query": "",
-          "body": "",
           "headers": {}
         },
         "response": {
           "status": 200,
           "encodedBody": false,
-          "headers": {}
+          "headers": { "Content-Type" : [ "application/json" ]}
         }
       }
     ]

@@ -1,6 +1,7 @@
 package io.specto.swagger.hoverfly;
 
 import java.util.Collections;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -41,14 +42,25 @@ public class ResponseDetails {
 
         private String body = "";
         private int status = 200;
+        Map<String, List<String>> headers = new LinkedHashMap<String, List<String>>();
 
         public Builder withBody(final String body) {
             this.body = body;
             return this;
         }
 
+        public Builder withHeaders(final Map<String, List<String>> headers) {
+            this.headers = headers;
+            return this;
+        }
+        
+        public Builder addHeader(final String key, List<String> values) {
+            this.headers.put(key, values);
+            return this;
+        }
+
         public ResponseDetails build() {
-            return new ResponseDetails(status, body, false, Collections.emptyMap());
+            return new ResponseDetails(status, body, false, headers);
         }
 
         public Builder withStatus(final int status) {

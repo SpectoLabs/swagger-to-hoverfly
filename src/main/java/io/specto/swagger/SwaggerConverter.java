@@ -21,6 +21,9 @@ import io.swagger.models.properties.Property;
 import io.swagger.models.properties.RefProperty;
 import io.swagger.parser.SwaggerParser;
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.LoggerFactory;
+import ch.qos.logback.classic.Level;
+import ch.qos.logback.classic.Logger;
 
 import java.util.List;
 import java.util.Map;
@@ -29,6 +32,8 @@ import java.util.stream.Stream;
 
 import static java.util.stream.Collectors.toList;
 
+import java.util.Arrays;
+
 public class SwaggerConverter {
 
     private static final String EMPTY_REQUEST_BODY = "";
@@ -36,8 +41,12 @@ public class SwaggerConverter {
     private final PropertyValueGenerator propertyValueGenerator = new PropertyValueGenerator();
 
     public PayloadView convert(String swaggerFile) {
+        
+        Logger root = (Logger)LoggerFactory.getLogger(Logger.ROOT_LOGGER_NAME);
+        Level level = root.getLevel();
+        root.setLevel(Level.WARN);
         Swagger swagger = new SwaggerParser().read(swaggerFile);
-
+        root.setLevel(level);
         final List<RequestResponsePairView> payloadList = swagger.getPaths().entrySet()
                 .stream()
                 .flatMap(e -> convertOperations(swagger, e))
@@ -59,7 +68,6 @@ public class SwaggerConverter {
                 .withMethod(operationEntry.getKey().name())
                 .withDestination(swagger.getHost())
                 .withQuery(generateQueryParameters(operationEntry.getValue()))
-                .withBody(generateRequestBody(operationEntry.getValue(), swagger.getDefinitions()))
                 .build();
 
         final Map<String, Response> responses = operationEntry.getValue().getResponses();
@@ -76,6 +84,8 @@ public class SwaggerConverter {
         if (response.getValue().getSchema() != null) {
             responseBuilder.withBody(tryAndConvertToJsonBody(swagger.getDefinitions(), response.getValue().getSchema()));
         }
+
+        responseBuilder.addHeader("Content-Type", Arrays.asList("application/json"));
 
         return new RequestResponsePairView(requestDetails, responseBuilder.build());
     }
@@ -94,7 +104,7 @@ public class SwaggerConverter {
                 .filter(s -> !s.isEmpty())
                 .collect(Collectors.joining("&"));
 
-        return query.isEmpty() ? "" : "?" + query;
+                return query.isEmpty() ? "" : query;
     }
 
     private String generateRequestBody(final Operation operation, final Map<String, Model> definitions) {
