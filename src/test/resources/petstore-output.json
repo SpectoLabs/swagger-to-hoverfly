@@ -8,14 +8,13 @@
         "destination" : "petstore.swagger.io",
         "scheme" : "http",
         "query" : "",
-        "body" : "{\"id\":\"0\",\"category\":{\"id\":\"0\",\"name\":\"string\"},\"name\":\"doggie\",\"photoUrls\":[\"string\"],\"tags\":[{\"id\":\"0\",\"name\":\"string\"}],\"status\":\"available\"}",
         "headers" : { }
       },
       "response" : {
         "status" : 400,
         "body" : "",
         "encodedBody" : false,
-        "headers" : { }
+        "headers": { "Content-Type" : [ "application/json" ]}
       }
     }, {
       "request" : {
@@ -25,14 +24,13 @@
         "destination" : "petstore.swagger.io",
         "scheme" : "http",
         "query" : "",
-        "body" : "{\"id\":\"0\",\"category\":{\"id\":\"0\",\"name\":\"string\"},\"name\":\"doggie\",\"photoUrls\":[\"string\"],\"tags\":[{\"id\":\"0\",\"name\":\"string\"}],\"status\":\"available\"}",
         "headers" : { }
       },
       "response" : {
         "status" : 405,
         "body" : "",
         "encodedBody" : false,
-        "headers" : { }
+        "headers": { "Content-Type" : [ "application/json" ]}
       }
     }, {
       "request" : {
@@ -41,15 +39,14 @@
         "method" : "GET",
         "destination" : "petstore.swagger.io",
         "scheme" : "http",
-        "query" : "?status=available",
-        "body" : "",
+        "query" : "status=available",
         "headers" : { }
       },
       "response" : {
         "status" : 200,
         "body" : "[{\"id\":\"0\",\"category\":{\"id\":\"0\",\"name\":\"string\"},\"name\":\"doggie\",\"photoUrls\":[\"string\"],\"tags\":[{\"id\":\"0\",\"name\":\"string\"}],\"status\":\"available\"}]",
         "encodedBody" : false,
-        "headers" : { }
+        "headers": { "Content-Type" : [ "application/json" ]}
       }
     }, {
       "request" : {
@@ -58,15 +55,14 @@
         "method" : "GET",
         "destination" : "petstore.swagger.io",
         "scheme" : "http",
-        "query" : "?tags=string",
-        "body" : "",
+        "query" : "tags=string",
         "headers" : { }
       },
       "response" : {
         "status" : 200,
         "body" : "[{\"id\":\"0\",\"category\":{\"id\":\"0\",\"name\":\"string\"},\"name\":\"doggie\",\"photoUrls\":[\"string\"],\"tags\":[{\"id\":\"0\",\"name\":\"string\"}],\"status\":\"available\"}]",
         "encodedBody" : false,
-        "headers" : { }
+        "headers": { "Content-Type" : [ "application/json" ]}
       }
     }, {
       "request" : {
@@ -76,14 +72,13 @@
         "destination" : "petstore.swagger.io",
         "scheme" : "http",
         "query" : "",
-        "body" : "",
         "headers" : { }
       },
       "response" : {
         "status" : 405,
         "body" : "",
         "encodedBody" : false,
-        "headers" : { }
+        "headers": { "Content-Type" : [ "application/json" ]}
       }
     }, {
       "request" : {
@@ -93,14 +88,13 @@
         "destination" : "petstore.swagger.io",
         "scheme" : "http",
         "query" : "",
-        "body" : "",
         "headers" : { }
       },
       "response" : {
         "status" : 400,
         "body" : "",
         "encodedBody" : false,
-        "headers" : { }
+        "headers": { "Content-Type" : [ "application/json" ]}
       }
     }, {
       "request" : {
@@ -110,14 +104,13 @@
         "destination" : "petstore.swagger.io",
         "scheme" : "http",
         "query" : "",
-        "body" : "",
         "headers" : { }
       },
       "response" : {
         "status" : 200,
         "body" : "{\"id\":\"0\",\"category\":{\"id\":\"0\",\"name\":\"string\"},\"name\":\"doggie\",\"photoUrls\":[\"string\"],\"tags\":[{\"id\":\"0\",\"name\":\"string\"}],\"status\":\"available\"}",
         "encodedBody" : false,
-        "headers" : { }
+        "headers": { "Content-Type" : [ "application/json" ]}
       }
     }, {
       "request" : {
@@ -127,14 +120,13 @@
         "destination" : "petstore.swagger.io",
         "scheme" : "http",
         "query" : "",
-        "body" : "",
         "headers" : { }
       },
       "response" : {
         "status" : 200,
         "body" : "{\"code\":\"0\",\"type\":\"string\",\"message\":\"string\"}",
         "encodedBody" : false,
-        "headers" : { }
+        "headers": { "Content-Type" : [ "application/json" ]}
       }
     }, {
       "request" : {
@@ -144,14 +136,13 @@
         "destination" : "petstore.swagger.io",
         "scheme" : "http",
         "query" : "",
-        "body" : "",
         "headers" : { }
       },
       "response" : {
         "status" : 200,
         "body" : "\"{}\"",
         "encodedBody" : false,
-        "headers" : { }
+        "headers": { "Content-Type" : [ "application/json" ]}
       }
     }, {
       "request" : {
@@ -161,14 +152,13 @@
         "destination" : "petstore.swagger.io",
         "scheme" : "http",
         "query" : "",
-        "body" : "{\"id\":\"0\",\"petId\":\"0\",\"quantity\":\"0\",\"shipDate\":\"\",\"status\":\"placed\",\"complete\":\"\"}",
         "headers" : { }
       },
       "response" : {
         "status" : 200,
         "body" : "{\"id\":\"0\",\"petId\":\"0\",\"quantity\":\"0\",\"shipDate\":\"\",\"status\":\"placed\",\"complete\":\"\"}",
         "encodedBody" : false,
-        "headers" : { }
+        "headers": { "Content-Type" : [ "application/json" ]}
       }
     }, {
       "request" : {
@@ -178,14 +168,13 @@
         "destination" : "petstore.swagger.io",
         "scheme" : "http",
         "query" : "",
-        "body" : "",
         "headers" : { }
       },
       "response" : {
         "status" : 400,
         "body" : "",
         "encodedBody" : false,
-        "headers" : { }
+        "headers": { "Content-Type" : [ "application/json" ]}
       }
     }, {
       "request" : {
@@ -195,14 +184,13 @@
         "destination" : "petstore.swagger.io",
         "scheme" : "http",
         "query" : "",
-        "body" : "",
         "headers" : { }
       },
       "response" : {
         "status" : 200,
         "body" : "{\"id\":\"0\",\"petId\":\"0\",\"quantity\":\"0\",\"shipDate\":\"\",\"status\":\"placed\",\"complete\":\"\"}",
         "encodedBody" : false,
-        "headers" : { }
+        "headers": { "Content-Type" : [ "application/json" ]}
       }
     }, {
       "request" : {
@@ -212,14 +200,13 @@
         "destination" : "petstore.swagger.io",
         "scheme" : "http",
         "query" : "",
-        "body" : "{\"id\":\"0\",\"username\":\"string\",\"firstName\":\"string\",\"lastName\":\"string\",\"email\":\"string\",\"password\":\"string\",\"phone\":\"string\",\"userStatus\":\"0\"}",
         "headers" : { }
       },
       "response" : {
         "status" : 200,
         "body" : "",
         "encodedBody" : false,
-        "headers" : { }
+        "headers": { "Content-Type" : [ "application/json" ]}
       }
     }, {
       "request" : {
@@ -229,14 +216,13 @@
         "destination" : "petstore.swagger.io",
         "scheme" : "http",
         "query" : "",
-        "body" : "",
         "headers" : { }
       },
       "response" : {
         "status" : 200,
         "body" : "",
         "encodedBody" : false,
-        "headers" : { }
+        "headers": { "Content-Type" : [ "application/json" ]}
       }
     }, {
       "request" : {
@@ -246,14 +232,13 @@
         "destination" : "petstore.swagger.io",
         "scheme" : "http",
         "query" : "",
-        "body" : "",
         "headers" : { }
       },
       "response" : {
         "status" : 200,
         "body" : "",
         "encodedBody" : false,
-        "headers" : { }
+        "headers": { "Content-Type" : [ "application/json" ]}
       }
     }, {
       "request" : {
@@ -263,14 +248,13 @@
         "destination" : "petstore.swagger.io",
         "scheme" : "http",
         "query" : "",
-        "body" : "",
         "headers" : { }
       },
       "response" : {
         "status" : 200,
         "body" : "\"string\"",
         "encodedBody" : false,
-        "headers" : { }
+        "headers": { "Content-Type" : [ "application/json" ]}
       }
     }, {
       "request" : {
@@ -280,14 +264,13 @@
         "destination" : "petstore.swagger.io",
         "scheme" : "http",
         "query" : "",
-        "body" : "",
         "headers" : { }
       },
       "response" : {
         "status" : 200,
         "body" : "",
         "encodedBody" : false,
-        "headers" : { }
+        "headers": { "Content-Type" : [ "application/json" ]}
       }
     }, {
       "request" : {
@@ -297,14 +280,13 @@
         "destination" : "petstore.swagger.io",
         "scheme" : "http",
         "query" : "",
-        "body" : "{\"id\":\"0\",\"username\":\"string\",\"firstName\":\"string\",\"lastName\":\"string\",\"email\":\"string\",\"password\":\"string\",\"phone\":\"string\",\"userStatus\":\"0\"}",
         "headers" : { }
       },
       "response" : {
         "status" : 400,
         "body" : "",
         "encodedBody" : false,
-        "headers" : { }
+        "headers": { "Content-Type" : [ "application/json" ]}
       }
     }, {
       "request" : {
@@ -314,14 +296,13 @@
         "destination" : "petstore.swagger.io",
         "scheme" : "http",
         "query" : "",
-        "body" : "",
         "headers" : { }
       },
       "response" : {
         "status" : 400,
         "body" : "",
         "encodedBody" : false,
-        "headers" : { }
+        "headers": { "Content-Type" : [ "application/json" ]}
       }
     }, {
       "request" : {
@@ -331,14 +312,13 @@
         "destination" : "petstore.swagger.io",
         "scheme" : "http",
         "query" : "",
-        "body" : "",
         "headers" : { }
       },
       "response" : {
         "status" : 200,
         "body" : "{\"id\":\"0\",\"username\":\"string\",\"firstName\":\"string\",\"lastName\":\"string\",\"email\":\"string\",\"password\":\"string\",\"phone\":\"string\",\"userStatus\":\"0\"}",
         "encodedBody" : false,
-        "headers" : { }
+        "headers": { "Content-Type" : [ "application/json" ]}
       }
     } ]
   },

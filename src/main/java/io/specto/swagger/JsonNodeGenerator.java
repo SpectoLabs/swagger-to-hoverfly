@@ -4,6 +4,8 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.JsonNodeFactory;
 import com.fasterxml.jackson.databind.node.ObjectNode;
+
+import io.swagger.models.ArrayModel;
 import io.swagger.models.Model;
 import io.swagger.models.properties.ArrayProperty;
 import io.swagger.models.properties.MapProperty;
@@ -28,7 +30,20 @@ public class JsonNodeGenerator {
         if (baseProperty.getType() != null && baseProperty.getType().equals("ref")) {
             RefProperty refProperty = (RefProperty) baseProperty;
             Model model = definitions.get(refProperty.getSimpleRef());
-            return generateJsonObject(model.getProperties());
+            if(model.getExample() != null) {
+                ObjectNode node = (ObjectNode) model.getExample();
+                return node.without("");
+            } else {
+                if(model.getClass().getName() == "io.swagger.models.ArrayModel") {
+                    ArrayModel arrayModel = (ArrayModel) model;
+                    Property property = arrayModel.getItems();
+                    JsonNode innerNode = generate(property);
+                    ArrayNode outerNode = new ArrayNode(factory);
+                    outerNode.add(innerNode);
+                    return outerNode;
+                } 
+                return generateJsonObject(model.getProperties());
+            }
         }
 
         if (baseProperty.getType() != null && baseProperty.getType().equals("object") && !(baseProperty instanceof MapProperty)) {
@@ -53,6 +68,9 @@ public class JsonNodeGenerator {
     private JsonNode generateJsonObject(Map<String, Property> properties) {
 
         ObjectNode root = factory.objectNode();
+        if(properties == null) {
+            return root;
+        }
 
         for (Map.Entry<String, Property> propertyEntry : properties.entrySet()) {
             root.set(propertyEntry.getKey(), generate(propertyEntry.getValue()));
